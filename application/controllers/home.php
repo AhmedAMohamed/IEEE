@@ -20,7 +20,12 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome_message');
+		$this->form();
 	}
+	public function form()
+{
+	$this->load->view("ieee_form");
+}
 }
 
 /* End of file welcome.php */
