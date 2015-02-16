@@ -23,10 +23,31 @@ class Home extends CI_Controller {
 		$this->load->view('header');
 		$this->form();
 	}
-	public function form()
+public function form()
 {
-	$this->load->view("ieee_form");
+	$data["message"]="";
+	$this->load->view("ieee_form",$data);
 }
+public function submit_form()
+{
+	$this->load->library("form_validation");
+	$this->form_validation->set_rules("full_name","Full Name:","required|alpha");
+	$this->form_validation->set_rules("grade","Grade","required");
+	$this->form_validation->set_rules("na_id","National ID number","required");
+	//$this->form_validation->set_rules("CV","CV","required");
+
+	if($this->form_validation->run() == false)
+	{
+		$data["message"]="";
+		$this->load->view("ieee_form",$data);
+	}
+	else
+	{
+		$data["message"]= "The Form Was submitted successfully";
+		$this->load->view("ieee_form",$data);	
+	}
+
+
 }
 
 /* End of file welcome.php */
