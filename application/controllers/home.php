@@ -57,6 +57,7 @@ public function submit_form()
 			$email = $this->input->post('email',true);
 			$code = $this->input->post('code',true);
 			$user=$this->registered_user->login($email,$code);
+			//redirect("") #to redirect to exam url
 			if(!$user){
 				$data['error']=1;
 			}
