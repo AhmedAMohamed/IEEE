@@ -1,4 +1,19 @@
+ <?php
+ if ($error == 1 ) {
+  echo '
+    <div class="a alert alert-danger alert-dismissable">
+            <strong>Error</strong>Rewite your right mail or right code</div>
+        </div>
+</div>';
+
+}
+ ?>
  <div class="container">
+ <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Enter the Exam</h1>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <form class="form-horizontal" role="form" method="POST" >

@@ -2,21 +2,10 @@
 
 class Home extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	function __construct(){
+		parent::__construct();
+		$this->load->model('applicant');
+	}
 	public function index()
 	{
 		//$this->load->view('welcome_message');
@@ -35,6 +24,22 @@ class Home extends CI_Controller {
 			}
 			else
 			{
+				$data = array(
+				'full_name'=>$_POST['full_name'],
+				'university'=>$_POST['University'],
+				'email'=>$_POST['mail'],
+				'faculty'=>$_POST['Faculty'],
+				'department'=>$_POST['Department'],
+				'year'=>$_POST['Year'],
+				'grade'=>$_POST['grade'],
+				'IEEEstudent'=>$_POST['did'],
+				'extracurricularActivities'=>$_POST['extr'],
+				'relatedCourses'=>$_POST['course'],
+				'Nid'=>$_POST['na_id'],
+				'cv'=>$_POST['CV'],
+				'comment'=>$_POST['comm'],
+				'code'=>$_POST['code']);
+				$this->post->insert_post($data);
 				$data["message"]= "The Form Was submitted successfully";
 				$this->load->view("header");
 				$this->load->view("submitted",$data);	
@@ -64,6 +69,7 @@ public function submit_form()
 	}
 	else
 	{
+
 		$data["message"]= "The Form Was submitted successfully";
 		$this->load->view("header");
 		$this->load->view("submitted",$data);	
@@ -72,15 +78,20 @@ public function submit_form()
 
 }
 	public function enter_exam(){
-				$this->load->model("registered_user");
+				$this->load->model("applicant");
+				$data['error'] = 0;
+
 		if ($_POST) {
 			$data['error'] = 0;
 			$email = $this->input->post('email',true);
 			$code = $this->input->post('code',true);
-			$user=$this->registered_user->login($email,$code);
-			//redirect("") #to redirect to exam url
-			if(!$user){
-				$data['error']=1;
+			$user=$this->applicant->enter_exam($email,$code);
+			
+			if($user){
+				//redirect("") #to redirect to exam url
+			}{
+				$this->load->view('header');
+				$this->load->view('enter-exam',$data);
 			}
 
 		}

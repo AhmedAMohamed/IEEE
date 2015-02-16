@@ -13,6 +13,11 @@ if (validation_errors()) {
 
 
  <div class="container">
+ <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Registration</h1>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <form class="form-horizontal" role="form" action="<?= base_url()  ; ?>index.php/home" method="post">
@@ -195,16 +200,17 @@ if (validation_errors()) {
             </div>
             <div class="form-group">
               <div class="col-sm-2">
-                <label for="CV" class="control-label">Upload Your CV </label>
+                <label for="CV" class="control-label"> Your CV </label>
               </div>
               <div class="col-sm-10">
                 <?php 
 	$data = array(
 		"name" => "CV",
 		"id" => "CV",
-		"Value" => ""
+		"Value" => "",
+		"class" => "form-control"
 	);
-	echo form_upload($data);
+	echo form_input($data);
                 ?>
               </div>
             </div>
@@ -237,7 +243,7 @@ if (validation_errors()) {
 	"value" => $code
 	);
 	echo form_input($data); ?>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" name ="submit"class="btn btn-default">Submit</button>
               </div>
             </div>
           </form>
