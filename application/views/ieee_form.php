@@ -16,6 +16,7 @@ if (validation_errors()) {
  <div class="row">
         <div class="col-md-12">
           <h1 class="text-center">Registration</h1>
+          <p class="text-center">* required</p>
         </div>
       </div>
       <div class="row">
@@ -23,7 +24,7 @@ if (validation_errors()) {
           <form class="form-horizontal" role="form" action="<?= base_url()  ; ?>index.php/home" method="post">
             <div class="form-group">
               <div class="col-sm-2">
-                <label for="full Name" class="control-label">Full Name</label>
+                <label for="full Name" class="control-label">Full Name*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -39,7 +40,7 @@ if (validation_errors()) {
             </div>
            <div class="form-group">
               <div class="col-sm-2">
-                <label for="mail" class="control-label">Email</label>
+                <label for="mail" class="control-label">Email*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -56,7 +57,7 @@ if (validation_errors()) {
             </div>
             <div class="form-group">
               <div class="col-sm-2">
-                <label for="uni" class="control-label">University</label>
+                <label for="uni" class="control-label">University*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -73,7 +74,7 @@ if (validation_errors()) {
             </div>
               <div class="form-group">
               <div class="col-sm-2">
-                <label for="fa" class="control-label">Faculty</label>
+                <label for="fa" class="control-label">Faculty*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -87,7 +88,7 @@ if (validation_errors()) {
             </div>
             <div class="form-group">
               <div class="col-sm-2">
-                <label for="dep" class="control-label">Department</label>
+                <label for="dep" class="control-label">Department*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -101,7 +102,7 @@ if (validation_errors()) {
             </div>
              <div class="form-group">
               <div class="col-sm-2">
-                <label for="year" class="control-label">Studying Year</label>
+                <label for="year" class="control-label">Studying Year*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -118,7 +119,7 @@ if (validation_errors()) {
             </div>
             <div class="form-group">
               <div class="col-sm-2">
-                <label for="grade" class="control-label">Grade</label>
+                <label for="grade" class="control-label">Grade*</label>
               </div>
               <div class="col-sm-10">
                 <?php 
@@ -182,7 +183,7 @@ if (validation_errors()) {
             </div>
               <div class="form-group">
               <div class="col-sm-2">
-                <label for="na_id" class="control-label">National ID number </label>
+                <label for="na_id" class="control-label">National ID number *</label>
               </div>
               <div class="col-sm-10">
                 <?php 
