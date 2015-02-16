@@ -1,16 +1,21 @@
 <div id="cont">
 <?php 
 $this->load->helper("form");
-?>
-<div class="a alert alert-danger alert-dismissable">
-            <strong><?= $message ?></strong><?= validation_errors(); ?></div>
+if (validation_errors()) {
+	echo '
+		<div class="a alert alert-danger alert-dismissable">
+            <strong>' . $message .'</strong>'. validation_errors(). '</div>
         </div>
-</div>
+</div>';
+
+}
+?>
+
 
  <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form class="form-horizontal" role="form" action="<?= base_url()  ; ?>index.php/home/submit_form" method="post">
+          <form class="form-horizontal" role="form" action="<?= base_url()  ; ?>index.php/home" method="post">
             <div class="form-group">
               <div class="col-sm-2">
                 <label for="full Name" class="control-label">Full Name</label>
@@ -55,6 +60,7 @@ $this->load->helper("form");
 	"class" => "form-control",
 	"Cairo" => "Cairo University",
 	"oth" => "other",
+	"class"=>"dropdown-menu"
 	);
 	echo form_dropdown("University",$university);
                 ?>
@@ -231,7 +237,7 @@ $this->load->helper("form");
 	"value" => $code
 	);
 	echo form_input($data); ?>
-                <button type="submit" class="btn btn-default">Sign in</button>
+                <button type="submit" class="btn btn-default">Submit</button>
               </div>
             </div>
           </form>
