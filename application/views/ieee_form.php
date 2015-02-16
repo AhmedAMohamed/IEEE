@@ -1,7 +1,7 @@
 <div id="cont">
 <?php 
 $this->load->helper("form");
-echo form_open_multipart("page/submit_form");
+echo form_open_multipart(base_url(). "index.php/home/submit_form");
 ///
 echo $message ;
 echo "<br>";
@@ -13,6 +13,17 @@ $data = array(
 	"id" => "full_name",
 	'style'       => 'width:20%',
 	"Value" => ""
+);
+
+echo form_input($data);
+///
+echo form_label("Email: ","mail");
+$data = array(
+	"name" => "mail",
+	"id" => "mail",
+	'style'       => 'width:20%',
+	"Value" => "",
+	"type" => "email"
 );
 
 echo form_input($data);
@@ -126,6 +137,14 @@ $data = array(
 
 echo form_textarea($data);
 ////
+$code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
+$data = array(
+	"name" => "code",
+	"type" => "hidden",
+	"value" => $code
+);
+echo form_input($data);
+///
 echo form_submit('Submit','submit');
 
 echo form_close();

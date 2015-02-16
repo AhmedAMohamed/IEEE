@@ -44,9 +44,27 @@ public function submit_form()
 	else
 	{
 		$data["message"]= "The Form Was submitted successfully";
-		$this->load->view("ieee_form",$data);	
+		$this->load->view("header");
+		$this->load->view("submitted",$data);	
 	}
 
+
+}
+	public function enter_exam(){
+				$this->load->model("registered_user");
+		if ($_POST) {
+			$data['error'] = 0;
+			$email = $this->input->post('email',true);
+			$code = $this->input->post('code',true);
+			$user=$this->registered_user->login($email,$code);
+			if(!$user){
+				$data['error']=1;
+			}
+
+		}
+		$this->load->view('header');
+		$this->load->view('enter-exam',$data);
+	}
 
 }
 
