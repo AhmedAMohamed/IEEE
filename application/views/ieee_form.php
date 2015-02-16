@@ -1,12 +1,16 @@
 <div id="cont">
 <?php 
 $this->load->helper("form");
-echo form_open_multipart("page/send_email");
+echo form_open_multipart("page/submit_form");
 ///
-echo form_label("Full Name: ","fullname");
+echo $message ;
+echo "<br>";
+echo validation_errors();
+
+echo form_label("Full Name: ","full_name");
 $data = array(
-	"name" => "fullname",
-	"id" => "fullname",
+	"name" => "full_name",
+	"id" => "full_name",
 	'style'       => 'width:20%',
 	"Value" => ""
 );
@@ -38,7 +42,7 @@ $depart = array(
 );
 echo form_dropdown("Department",$depart);
 ///
-echo form_label(" <br> Year: ","year");
+echo form_label(" <br> Studying Year: ","year");
 $year = array(
 	"y1" => "1st", 
 	"y2" => "2nd",
@@ -59,6 +63,7 @@ echo form_input($data);
 
 
 ///
+echo form_label(" <br> IEEE Student branch volunteer: ","vl");
 echo form_label(' <br> Yes', 'did');
 echo form_radio('did','YES',True);
 echo form_label('<br> No ', 'did');  
@@ -121,7 +126,7 @@ $data = array(
 
 echo form_textarea($data);
 ////
-
+echo form_submit('Submit','submit');
 
 echo form_close();
 ?>
