@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 		$this->load->view('header');
 		if ($_POST) {
 			$this->load->library("form_validation");
-			$this->form_validation->set_rules("full_name","Full Name:","required|alpha");
+			$this->form_validation->set_rules("full_name","Full Name:","required");
 			$this->form_validation->set_rules("grade","Grade","required");
 			$this->form_validation->set_rules("na_id","National ID number","required");
 			//$this->form_validation->set_rules("CV","CV","required");
@@ -39,9 +39,8 @@ class Home extends CI_Controller {
 				'cv'=>$_POST['CV'],
 				'comment'=>$_POST['comm'],
 				'code'=>$_POST['code']);
-				$this->post->insert_post($data);
+				$this->applicant->insert_user($data);
 				$data["message"]= "The Form Was submitted successfully";
-				$this->load->view("header");
 				$this->load->view("submitted",$data);	
 			}
 		}else{

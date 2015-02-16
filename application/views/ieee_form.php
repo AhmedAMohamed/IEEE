@@ -139,9 +139,9 @@ if (validation_errors()) {
               <div class="col-sm-10">
                 <?php 
 	echo form_label(' <br> Yes', 'did');
-	echo form_radio('did','YES',True);
+	echo form_radio('did',1,True);
 	echo form_label('<br> No ', 'did');  
-	echo form_radio('did','NO'); 
+	echo form_radio('did',0); 
                 ?>
               </div>
             </div>
