@@ -17,6 +17,7 @@ if (!isset($_POST)) {
       <div class="row">
         <div class="col-md-12">
           <p style="font-size: 30px">Your Code: <?= $_POST["code"] ?></p>
+	  <p style="font-size: 15px">Please save this code because you will need it during the online test</p>
         </div>
       </div>
     </div>

@@ -8,14 +8,12 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
-		//$this->load->view('welcome_message');
 		$this->load->view('header');
 		if ($_POST) {
 			$this->load->library("form_validation");
 			$this->form_validation->set_rules("full_name","Full Name:","required");
 			$this->form_validation->set_rules("grade","Grade","required");
-			$this->form_validation->set_rules("na_id","National ID number","required");
-			//$this->form_validation->set_rules("CV","CV","required");
+			$this->form_validation->set_rules("na_id","National ID number","required|min_length[14]|max_length[14]");
 
 			if($this->form_validation->run() == false)
 			{
@@ -56,10 +54,9 @@ public function form()
 public function submit_form()
 {
 	$this->load->library("form_validation");
-	$this->form_validation->set_rules("full_name","Full Name:","required");
+	$this->form_validation->set_rules("full_name","Full Name:","required|alpha");
 	$this->form_validation->set_rules("grade","Grade","required");
 	$this->form_validation->set_rules("na_id","National ID number","required");
-	$this->form_validation->set_rules("mail","Enter your email","required");
 	//$this->form_validation->set_rules("CV","CV","required");
 
 	if($this->form_validation->run() == false)
