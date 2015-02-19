@@ -39,8 +39,7 @@ class Test extends CI_Controller {
 			$this->load->view("no_back_test");
 		}else{
 			if ($_POST) {
-				$kk = $_POST['kk'];
-				$data['kk'] = $kk;
+				
 				$this->load->view("thanks",$data);
 			}
 			else{
