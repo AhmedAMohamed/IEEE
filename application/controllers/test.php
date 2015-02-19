@@ -9,10 +9,9 @@ class Test extends CI_Controller {
 	{
 		$this->load->view("header");
 		//timer in seconds in $i
-		$i = 30;
-		$sec = "30";
+		$i = 15*60;
+		$sec = "900";
 		header("Refresh: $sec; url=".base_url()."index.php/test/finish"); 
-		//header("Refresh:30;url=".base_url()."index.php/test/finish");
 		function timer($li){
 			session_start();
 			$timeleft = 0;
@@ -39,6 +38,7 @@ class Test extends CI_Controller {
 			$this->load->view("no_back_test");
 		}else{
 			if ($_POST) {
+				//POST here solutions
 				
 				$this->load->view("thanks",$data);
 			}
@@ -49,15 +49,13 @@ class Test extends CI_Controller {
 		}
 	}
 	public function dead(){
+		//To Kill Timer
 		session_start();	
-		// 2. Unset all the session variables
 		$_SESSION = array();
 		
-		// 3. Destroy the session cookie
 		if(isset($_COOKIE[session_name()])) {
 			setcookie(session_name(), '', time()-42000, '/');
 		}
-		// 4. Destroy the session
 		session_destroy();
 	}
 
