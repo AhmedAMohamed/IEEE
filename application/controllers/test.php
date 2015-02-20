@@ -4,9 +4,19 @@ class Test extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+
 	}
 	public function index()
 	{
+		if (!isset($_GET['code'])) {
+			redirect( base_url()."index.php/test/finish?error=2"); //error in get
+		}
+		$code = $_GET['code'];
+		$this->load->model('result');
+		//cheching if he tested
+		if ($this->result->check_if_tested($code)) {
+			redirect( base_url()."index.php/test/finish?error=3".$this->result->check_if_tested($code)); //error he tested before
+		}
 		$this->load->view("header");
 		//timer in seconds in $i
 		$i = 15*60;
@@ -40,7 +50,8 @@ class Test extends CI_Controller {
 			if ($_POST) {
 				//POST here solutions
 				
-				$this->load->view("thanks",$data);
+				$this->dead();
+				$this->load->view("thanks");
 			}
 			else{
 				$this->load->view("no_back_test");

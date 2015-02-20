@@ -85,10 +85,9 @@ public function submit_form()
 			$user=$this->applicant->enter_exam($email,$code);
 			
 			if($user){
-				//redirect("") #to redirect to exam url
+				redirect( base_url() . "index.php/test?code=".$code); #to redirect to exam url
 			}{
-				$this->load->view('header');
-				$this->load->view('enter-exam',$data);
+				$data['error'] = 1;
 			}
 
 		}
