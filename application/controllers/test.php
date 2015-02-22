@@ -4,7 +4,7 @@ class Test extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('result');
+		//$this->load->model('result');
 	}
 	public function index()
 	{
@@ -74,4 +74,3 @@ class Test extends CI_Controller {
 	}
 
 }
-

@@ -5,9 +5,9 @@ class Result extends CI_Model {
 		return $this->db->insert_id();
 	}
 
-	function eval($data) {
-		$json = '{"Q1": "b", "Q2": "a", "Q3": "a", "Q4": "a", "Q5": "a", "Q6": "a", "Q7": "c", "Q8": "b", "Q9": "a", "Q10": "b", "Q11": "a", "Q12": "d", "Q13": "b", "Q14": "a", "Q15": "b", "Q16": "b", "Q17": "c", "Q18": "c", "Q19": "a", "Q100": "c"}';
-	}
+	// function eval($data) {
+	// 	$json = '{"Q1": "b", "Q2": "a", "Q3": "a", "Q4": "a", "Q5": "a", "Q6": "a", "Q7": "c", "Q8": "b", "Q9": "a", "Q10": "b", "Q11": "a", "Q12": "d", "Q13": "b", "Q14": "a", "Q15": "b", "Q16": "b", "Q17": "c", "Q18": "c", "Q19": "a", "Q100": "c"}';
+	// }
 
 	function check_if_tested($code){
 		$where = array(
