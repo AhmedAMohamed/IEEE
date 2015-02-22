@@ -4,7 +4,7 @@ class Test extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-
+		$this->load->model('result');
 	}
 	public function index()
 	{
@@ -21,7 +21,7 @@ class Test extends CI_Controller {
 		//timer in seconds in $i
 		$i = 15*60;
 		$sec = "900";
-		header("Refresh: $sec; url=".base_url()."index.php/test/finish"); 
+		header("Refresh: $sec; url=".base_url()."index.php/test/finish");
 		function timer($li){
 			if(!isset($_SESSION)){
     				session_start();
@@ -51,21 +51,22 @@ class Test extends CI_Controller {
 		}else{
 			if ($_POST) {
 				//POST here solutions
-				
+				// TODO
+				// $this->result->eval($_POST);
 				$this->dead();
 				$this->load->view("thanks");
 			}
 			else{
 				$this->load->view("no_back_test");
 			}
-		
+
 		}
 	}
 	public function dead(){
 		//To Kill Timer
-		session_start();	
+		session_start();
 		$_SESSION = array();
-		
+
 		if(isset($_COOKIE[session_name()])) {
 			setcookie(session_name(), '', time()-42000, '/');
 		}
