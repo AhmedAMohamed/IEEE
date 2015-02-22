@@ -14,4 +14,12 @@ class Applicant extends CI_Model {
 		$query = $this->db->get();
 		return $query->first_row('array');
 	}
+
+	function mark_as_tested($email) {
+		$this->db->update(
+				'applicants',
+			 	array('tested' => true),
+				array('email' => $email)
+			);
+	}
 }

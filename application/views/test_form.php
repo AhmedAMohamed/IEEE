@@ -1,16 +1,6 @@
-<?php 
-
-?>
 <?php
-echo "<script>$(function(){setTimeout(function(){ $('#fr').submit(); },".($submit_time - 1)."000); }); </script>";
+  echo "<script>$(function(){setTimeout(function(){ $('#fr').submit(); },".($submit_time - 1)."000); }); </script>";
 ?>
-
-
-<!---FORM HERE -->
-
-
-
-
 <div class="container">
  <div class="row">
   <div class="col-md-12">
@@ -22,16 +12,15 @@ echo "<script>$(function(){setTimeout(function(){ $('#fr').submit(); },".($submi
   <div class="col-md-12">
     <form class="form-horizontal" id="fr"role="form" action="<?= base_url(); ?>index.php/test/finish" method="post">
       <div id="testHere">
-      	
       </div>
-                 <button type="submit" name ="submit"class="btn btn-default btn-block">Submit</button>
-
+      <input type="hidden" name="email" value="<?php echo $email ?>">
+      <button type="submit" name ="submit"class="btn btn-default btn-block">Submit</button>
      </form>
      <script type="text/javascript">
 	$.getJSON('<?= base_url();?>libs/questions.json' , function  (data) {
      	var output = "" ;
      	var questionNum = 0;
-          	$.each(data.reverse() , function  (key , val) {
+          	$.each(data , function  (key , val) {
     	// body...
     	questionNum++;
      	output += '<div class="form-group"><div class="col-sm-9">' ;
