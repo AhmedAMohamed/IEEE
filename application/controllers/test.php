@@ -23,7 +23,9 @@ class Test extends CI_Controller {
 		$sec = "900";
 		header("Refresh: $sec; url=".base_url()."index.php/test/finish"); 
 		function timer($li){
-			session_start();
+			if(!isset($_SESSION)){
+    				session_start();
+			}
 			$timeleft = 0;
 			if (!isset($_SESSION['start'])) {
 				$_SESSION['start'] = time();
