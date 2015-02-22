@@ -7,3 +7,4 @@ application/config/*
 */cache/*
 */cache/!index.html
 */cache/!.htaccess
+ftpsync.settings
