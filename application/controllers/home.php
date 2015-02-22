@@ -83,9 +83,10 @@ public function submit_form()
 			$email = $this->input->post('email',true);
 			$code = $this->input->post('code',true);
 			$user=$this->applicant->enter_exam($email,$code);
-			
-			if($user){
-				redirect( base_url() . "index.php/test?code=".$code); #to redirect to exam url
+
+			if($user && !$user["tested"]){
+				$this->applicant->mark_as_tested($email);
+				redirect( base_url() . "index.php/test?email=".$email); #to redirect to exam url
 			}{
 				$data['error'] = 1;
 			}
